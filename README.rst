@@ -223,7 +223,13 @@ DNS lookup
   ``ARP process`` below for the DNS server.
 * If the DNS server is on a different subnet, the network library follows
   the ``ARP process`` below for the default gateway IP.
-
+* The process continues until an authoritative DNS server that can provide
+  the record is found.
+* The entire process, from when the user types the domain and presses enter, 
+  occurs within a matter of seconds. 
+* If the ‘A Record’ for the domain cannot be found, the browser displays the
+  “Server IP address could not be found” error.
+  Otherwise, the browser displays the webpage for google.com.
 
 ARP process
 -----------
@@ -525,6 +531,8 @@ Browser
 
 The browser's functionality is to present the web resource you choose, by
 requesting it from the server and displaying it in the browser window.
+When the browser gets a response from a domain's servers, it inspects
+the header file to determine how it should render the content received. 
 The resource is usually an HTML document, but may also be a PDF,
 image, or some other type of content. The location of the resource is
 specified by the user using a URI (Uniform Resource Identifier).
